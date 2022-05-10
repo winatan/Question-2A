@@ -20,7 +20,7 @@ def requestTask():
         else:
             connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
             channel = connection.channel()
-            channel.queue_declare(queue='TaskQueue')
+            channel.queue_declare(queue='RegisterQueue')
             channel.basic_publish(exchange='',
                                 routing_key='hello',
                                 body=data['task'])
